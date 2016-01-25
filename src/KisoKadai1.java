@@ -17,6 +17,7 @@ public class KisoKadai1 {
 		//自由にレンジを変える縦と横の長さ
 		int tate = 9;
 		int yoko = 9;
+
 		int y = 0;
 
 		for( int i = 0; i < tate; i++ ){
