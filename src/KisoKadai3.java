@@ -22,12 +22,12 @@ public class KisoKadai3 {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
-
-
 //		Yomikomi("C:\\Users\\internous\\Desktop\\banshow\\test\\test.txt");
 
 		for(int i = 0; i < 1;){
+
 			String str = "";
+
 			System.out.println("テキストファイルメニューだよ！\n");
 			System.out.println("新規作成は[ 1 ]、すでにあるテキストの編集は[ 2 ]を半角で入れてね");
 
@@ -35,10 +35,10 @@ public class KisoKadai3 {
 
 				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
 				str = br.readLine();
 
 			}catch(IOException e){
+
 				System.out.println("Exception :" + e);
 			}
 
@@ -48,7 +48,6 @@ public class KisoKadai3 {
 
 				//新規メソッド起動
 				SinkiFile();
-
 
 			}else if( str.equals( "2" ) ){
 
@@ -64,7 +63,9 @@ public class KisoKadai3 {
 					henshu = br.readLine();
 
 				}catch(IOException e){
+
 					System.out.println("Exception :" + e);
+
 				}
 
 				if( henshu.equals( "1" ) ){
@@ -81,11 +82,9 @@ public class KisoKadai3 {
 
 				}
 
-
 			}else{
 
 				System.out.println("文字が違うよ；；");
-
 
 			}
 		}
@@ -94,6 +93,7 @@ public class KisoKadai3 {
 
 	//ファイル一覧メソッド
 	public static void Itiran(String pass){
+
 		  File targetfile = new File( pass );
 
 		  String[] filelist = targetfile.list();
@@ -101,6 +101,7 @@ public class KisoKadai3 {
 		  for (int i = 0 ; i < filelist.length ; i++){
 
 			  System.out.println(filelist[i]);
+
 		  }
 	  }
 
@@ -108,6 +109,7 @@ public class KisoKadai3 {
 	public static void Yomikomi( String pass ){
 
 	    try{
+
 	        File file = new File( pass );
 
 	        if (checkBeforeReadfile(file)){
@@ -118,31 +120,48 @@ public class KisoKadai3 {
 
 	            System.out.println("以下テキスト内容");
 	            System.out.println("---------( 枠 )------------\n");
+
 	          while((str = br.readLine()) != null){
+
 		            System.out.println( str );
+
 	          }
+
 	            System.out.println("---------( 枠 )------------\n");
 
 	          br.close();
+
 	        }else{
+
 	          System.out.println("ファイルが見つからないか開けません");
+
 	        }
+
 	      }catch(FileNotFoundException e){
+
 	        System.out.println(e);
+
 	      }catch(IOException e){
+
 	        System.out.println(e);
+
 	      }
-	    }
+	}
 	//上を全て読み込んだか判断するメソッド
 	private static boolean checkBeforeReadfile(File file){
+
 	      if (file.exists()){
-	        if (file.isFile() && file.canRead()){
-	          return true;
-	        }
+
+	    	  if (file.isFile() && file.canRead()){
+
+	    		  return true;
+
+	    	  }
 	      }
 
 	      return false;
-	    }
+
+	}
 
 	//テキスト上書きメソッド
 	  public static void Uwagaki(){
@@ -160,7 +179,6 @@ public class KisoKadai3 {
 
 				if( pass.equals( "" ) ){
 
-
 					System.out.println( "ファイルの名前を教えてね" );
 					System.out.println( "下が例だよ！test.txtってファイルに設定しようとしてるの♪[ ファイル名.txt ]\n " );
 					System.out.println( "test.txt\n" );
@@ -169,12 +187,14 @@ public class KisoKadai3 {
 					String filename = GetKey();
 
 					for( int j = 0; j < 1; ){
+
 						try{
+
 							File file = new File("C:\\Users\\internous\\Desktop\\banshow\\test\\" + filename );
 
 							if (checkBeforeWritefile(file)){
-								BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 
+								BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 
 								System.out.println( "C:\\Users\\internous\\Desktop\\banshow\\test\\" + filename + "に書き込むね\n" );
 								System.out.println( "↓内容" );
@@ -201,26 +221,26 @@ public class KisoKadai3 {
 								}else{
 									System.out.println( "オッケー♪レッツもう一回！" );
 
-
 								}
 
-
-
 							}else{
+
 								System.out.println( "ファイル名間違ってるかも" );
 								System.out.println( "もう一度入力してみて～(TAT)" );
+
 								break;
+
 							}
 
-
 						}catch(IOException e){
+
 							System.out.println(e);
+
 						}
 
 					}
 
-
-
+					break;
 				}else{
 
 					for( int j = 0; j < 1; ){
@@ -230,6 +250,7 @@ public class KisoKadai3 {
 							File file = new File( pass );
 
 							if (checkBeforeWritefile(file)){
+
 								BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 
 								System.out.println( pass + "に書き込むね\n" );
@@ -252,12 +273,12 @@ public class KisoKadai3 {
 								if( ShinnkiKakikomi.equals( "1" )){
 
 									System.out.println( "テキストの上書き完了！！" );
+
 									break;
 
 								}else{
 
 									System.out.println( "オッケー♪レッツもう一回！" );
-
 
 								}
 
@@ -265,36 +286,44 @@ public class KisoKadai3 {
 
 								System.out.println( "ファイル名間違ってるかも" );
 								System.out.println( "もう一度入力してみて～(TAT)" );
-								break;
-							}
 
+								break;
+
+							}
 
 						}catch(IOException e){
 
 							System.out.println(e);
 
 						}
-
 					}
 
+
 				}
+				break;
 			}
 	  }
 	//上を全て書き込んだか判断するメソッド
 	private static boolean checkBeforeWritefile(File file){
-		    if (file.exists()){
-		      if (file.isFile() && file.canWrite()){
-		        return true;
-		      }
-		    }
 
-		    return false;
-		  }
+		if (file.exists()){
+
+			if (file.isFile() && file.canWrite()){
+
+				return true;
+
+			}
+		}
+
+		return false;
+
+	}
 
 	//テキスト追加メソッド
 	public static void Tuika(){
 
 		for( int i = 0; i < 1;){
+
 			System.out.println( "何処のテキストファイルを追記しよっか？" );
 			System.out.println( "↓例だよ\n" );
 			System.out.println( "C:\\Users\\internous\\Desktop\\banshow\\test\\test.txt" );
@@ -306,7 +335,6 @@ public class KisoKadai3 {
 
 			if( pass.equals( "" ) ){
 
-
 				System.out.println( "ファイルの名前を教えてね" );
 				System.out.println( "下が例だよ！test.txtってファイルに設定しようとしてるの♪[ ファイル名.txt ]\n " );
 				System.out.println( "test.txt\n" );
@@ -315,10 +343,12 @@ public class KisoKadai3 {
 				String filename = GetKey();
 
 				for( int j = 0; j < 1; ){
+
 					try{
 						File file = new File("C:\\Users\\internous\\Desktop\\banshow\\test\\" + filename );
 
 						if (checkBeforeTuikaWritefile(file)){
+
 							FileWriter filewriter = new FileWriter(file, true);
 
 							System.out.println( "C:\\Users\\internous\\Desktop\\banshow\\test\\" + filename + "に書き込むね\n" );
@@ -340,35 +370,42 @@ public class KisoKadai3 {
 							if( TuikaKakikomi.equals( "1" )){
 
 								System.out.println( "テキストの追記完了！！" );
+
 								break;
 
 							}else{
 
 								System.out.println( "オッケー♪レッツもう一行！" );
 
-
 							}
-
 
 						}else{
 
 							System.out.println( "ファイル名間違ってるかも" );
 							System.out.println( "もう一度入力してみて～(TAT)" );
+
 							break;
 
 						}
+
 					}catch(IOException e){
+
 						System.out.println(e);
 
 					}
 				}
+
+				break;
+
 			}else{
 
 				for( int j = 0; j < 1; ){
+
 					try{
 						File file = new File( pass );
 
 						if (checkBeforeTuikaWritefile(file)){
+
 							FileWriter filewriter = new FileWriter(file, true);
 
 							System.out.println( pass + "に書き込むね\n" );
@@ -377,7 +414,6 @@ public class KisoKadai3 {
 							String  UserW = GetKey();
 
 							filewriter.write( UserW + "\n");
-
 
 							filewriter.close();
 
@@ -388,40 +424,53 @@ public class KisoKadai3 {
 
 							String ShinnkiKakikomi = GetKey();
 
-
 							if( ShinnkiKakikomi.equals( "1" )){
+
 								System.out.println( "テキストの追記完了！！" );
+
 								break;
 
 							}else{
+
 								System.out.println( "オッケー♪レッツもう一行！" );
 
 							}
 
 						}else{
+
 							System.out.println( "ファイル名間違ってるかも" );
 							System.out.println( "もう一度入力してみて～(TAT)" );
+
 							break;
 
 						}
+
 					}catch(IOException e){
+
 						System.out.println(e);
 
 					}
 				}
+
+				break;
+
 			}
 		}
 	}
 
 	private static boolean checkBeforeTuikaWritefile(File file){
-		    if (file.exists()){
-		      if (file.isFile() && file.canWrite()){
-		        return true;
-		      }
-		    }
 
-		    return false;
-		  }
+		if (file.exists()){
+
+			if (file.isFile() && file.canWrite()){
+
+				return true;
+			}
+		}
+
+		return false;
+
+	}
 
 	//ファイルを新規作成するメソッド
 	public static void SinkiFile(){
@@ -441,13 +490,14 @@ public class KisoKadai3 {
 			kitei = br.readLine();
 
 		}catch(IOException e){
+
 			System.out.println("Exception :" + e);
 		}
-
 
 		for( int i = 0; i < 1; ){
 
 			String str = "";
+
 			if( kitei.equals( "1" ) ){
 
 				String basho = "c:\\\\Users\\\\internous\\\\Desktop\\\\banshow\\\\test";
@@ -460,20 +510,25 @@ public class KisoKadai3 {
 
 				try{
 
+
 					BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 					str = br.readLine();
 
 				}catch(IOException e){
+
 					System.out.println("Exception :" + e);
+
 				}
 
 				File targetfile = new File( basho + "\\" + str );
 
 				try{
+
 					if (targetfile.createNewFile()){
 
 						System.out.println( "ファイルを作ったよ！えっへん♪" );
+
 						break;
 
 					}else{
@@ -498,7 +553,6 @@ public class KisoKadai3 {
 				System.out.println( "test.txt\n" );
 				System.out.println( "↓入力" );
 
-
 				try{
 
 					BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -506,15 +560,19 @@ public class KisoKadai3 {
 					str = br.readLine();
 
 				}catch(IOException e){
+
 					System.out.println("Exception :" + e);
+
 				}
 
 				File targetfile = new File( basho + "\\" + str );
 
 				try{
+
 					if (targetfile.createNewFile()){
 
 						System.out.println( "ファイルを作ったよ！えっへん♪" );
+
 						break;
 
 					}else{
@@ -525,7 +583,8 @@ public class KisoKadai3 {
 					      System.out.println("作ってあったかも！って思って、「新規作成を終了」なら[ 1 ]を押してね♪");
 					      System.out.println("名前の入力をもう一度したかったら[ 2 ]とか1以外を入れてね♪");
 						  System.out.println("↓入力");
-							String str2 = "";
+
+						  String str2 = "";
 
 							try{
 
@@ -534,11 +593,14 @@ public class KisoKadai3 {
 								str2 = br.readLine();
 
 							}catch(IOException e){
+
 								System.out.println("Exception :" + e);
+
 							}
 
 							if( str2.equals( "1" ) ){
-							      System.out.println("ファイル作成完了♪\n");
+
+								System.out.println("ファイル作成完了♪\n");
 							      System.out.println( "今入力した名前は:" + str );
 
 							      break;
