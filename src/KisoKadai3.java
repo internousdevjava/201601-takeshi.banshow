@@ -29,7 +29,8 @@ public class KisoKadai3 {
 			String str = "";
 
 			System.out.println("テキストファイルメニューだよ！\n");
-			System.out.println("新規作成は[ 1 ]、すでにあるテキストの編集は[ 2 ]を半角で入れてね");
+			System.out.println("新規作成は[ 1 ]、すでにあるテキストの編集は[ 2 ]");
+			System.out.println("終了は[ 3 ]を入力してね♪");
 
 			try{
 
@@ -81,6 +82,12 @@ public class KisoKadai3 {
 					Tuika();
 
 				}
+
+			}else if ( str.equals( "3" ) ){
+
+				System.out.println("おっけー！またね～♪");
+
+				break;
 
 			}else{
 
@@ -458,6 +465,7 @@ public class KisoKadai3 {
 		}
 	}
 
+	//上の補助
 	private static boolean checkBeforeTuikaWritefile(File file){
 
 		if (file.exists()){
@@ -476,9 +484,8 @@ public class KisoKadai3 {
 	public static void SinkiFile(){
 
 	 	System.out.println( "テキストファイルをどこにしよっか？" );
-		System.out.println( "規定の場所  C:\\Users\\internous\\Desktop\\banshow\\test" );
-		System.out.println( "規定の場所で良かったら[ 1 ]を" );
-		System.out.println( "指定したかったら[ 2 ]とかの1以外を押してね♪" );
+		System.out.println( "現在の場所で良かったら何も入力せずにエンターキーを" );
+		System.out.println( "指定したかったら適当に何か入力してね" );
 		System.out.println( "↓入力" );
 
 		String kitei = "";
@@ -498,9 +505,9 @@ public class KisoKadai3 {
 
 			String str = "";
 
-			if( kitei.equals( "1" ) ){
+			if( kitei.equals( "" ) ){
 
-				String basho = "c:\\\\Users\\\\internous\\\\Desktop\\\\banshow\\\\test";
+				String basho = "./";
 
 			 	System.out.println( "では！ファイルの名前を教えてね" );
 				System.out.println( "下が例だよ！test.txtってファイルに設定しようとしてるの[ ファイル名.txt ]\n " );
@@ -549,7 +556,7 @@ public class KisoKadai3 {
 				String basho = SinkiDir();
 
 			 	System.out.println( "では！ファイルの名前を教えてね" );
-				System.out.println( "下が例だよ！\ntest.txtってファイルに設定しようとしてるの[ \\\\ファイル名.txt ]\n " );
+				System.out.println( "下が例だよ！\ntest.txtってファイルに設定しようとしてるの[ ファイル名.txt ]\n " );
 				System.out.println( "test.txt\n" );
 				System.out.println( "↓入力" );
 
@@ -624,33 +631,25 @@ public class KisoKadai3 {
 	//ディレクトリを新規作成するメソッド
 	public static String SinkiDir(){
 
-
 		for( int i = 0; i < 1; ){
-			System.out.println( "ファイルを作成したいフォルダの場所を設定しておくれ～" );
+			System.out.println( "ファイルを作りたいフォルダの場所を設定しておくれ～" );
 			System.out.println( "下が例だよ！testってフォルダを設定しようとしてるの\n" );
-			System.out.println( "C:\\\\Users\\\\internous\\\\Desktop\\\\banshow\\\\test\n" );
+			System.out.println( "c:\\\\Users\\\\internous\\\\Desktop\\\\banshow\\\\test\n" );
 			System.out.println( "注意！！必ず各フォルダー名の間に \\\\ をつけてね(＞A＜)！" );
 			System.out.println( "↓入力" );
 
-			String str = "";
+			String pass = "";
 
-			try{
+			pass = GetKey();
 
-				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-				str = br.readLine();
-
-			}catch(IOException e){
-				System.out.println("Exception :" + e);
-			}
-
-			File newfile = new File(str);
+			File newfile = new File( pass );
 
 		    if (newfile.mkdirs()){
 
 		      System.out.println("その場所は無かったから作ったよ！えっへん♪");
 		      System.out.println();
-		      return str;
+
+		      return pass;
 
 		    }else{
 
@@ -660,23 +659,17 @@ public class KisoKadai3 {
 		      System.out.println("作ってあったかも！って思って、次の「ファイルの名前をつけに行く」なら[ 1 ]を押してね♪");
 		      System.out.println("場所の入力をもう一度したかったら[ 2 ]とか1以外を入れてね♪");
 			  System.out.println("↓入力");
+
 				String str2 = "";
 
-				try{
-
-					BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-					str2 = br.readLine();
-
-				}catch(IOException e){
-					System.out.println("Exception :" + e);
-				}
+				str2 = GetKey();
 
 				if( str2.equals( "1" ) ){
-				      System.out.println( "今入力したのは:" + str );
+
+				      System.out.println( "今入力したのは:" + pass );
 				      System.out.println("そっかそっかおっけー♪\n");
 
-				      return str;
+				      return pass;
 
 				}else{
 
@@ -700,8 +693,6 @@ public class KisoKadai3 {
 	  }
 
 	//ファイルかディレクトリか調べるメソッド
-
-	//ファイルかディレクトリか判定
 	public static void Hantei(){
 
 		    File cdirectory = new File( "c:\\" );
@@ -727,8 +718,6 @@ public class KisoKadai3 {
 	  }
 
 	//ファイルの存在確認と削除メソッド
-
-	//消去するメソッド
 	public static void Delete(){
 
 		    File file = new File("c:\\test");
@@ -775,7 +764,6 @@ public class KisoKadai3 {
 
 	}
 
-	//専用設定の解除メソッド( 読み取り専用にするメソッドにひもづいてる )
 	//上を補助
 	private static void checkPermission(File file){
 
@@ -791,7 +779,6 @@ public class KisoKadai3 {
 
 		    }
 		  }
-
 
 	//キーボード入力するメソッド
 	private static String GetKey(){
