@@ -17,9 +17,7 @@ public class KisoKadai1 {
 		//自由にレンジを変える縦と横の長さ
 		int tate = 9;
 		int yoko = 9;
-
 		int y = 0;
-
 
 		for( int i = 0; i < tate; i++ ){
 
@@ -33,15 +31,11 @@ public class KisoKadai1 {
 
 				if( x * y < 10 ){
 
-
-
-
 					System.out.print( "0"  + y * x + " " );
 
 				}else{
 
 					System.out.print( y * x + " " );
-
 
 				}
 

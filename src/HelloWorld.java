@@ -15,7 +15,6 @@ public class HelloWorld {
 
 		System.out.println( "お前はもう死んでいる" );
 
-
 	}
 
 }

@@ -688,9 +688,9 @@ public class KisoKadai3 {
 		return "";
 	}
 
-	//パス取得
 	//パスを取得するメソッド
 	public static void GetPass(){
+
 		  File targetfile = new File("test.txt");
 
 	      String path = targetfile.getAbsolutePath();
@@ -711,9 +711,11 @@ public class KisoKadai3 {
 		    for (int i = 0 ; i < filelist.length; i++){
 
 		    	if (filelist[i].isFile()){
+
 		    		System.out.println("[F]" + filelist[i].getName());
 
 		    	}else if (filelist[i].isDirectory()){
+
 		    		System.out.println("[D]" + filelist[i].getName());
 
 		    	}else{
@@ -721,26 +723,32 @@ public class KisoKadai3 {
 		    		System.out.println("[?]" + filelist[i].getName());
 
 		    	}
-
 		    }
-
 	  }
 
 	//ファイルの存在確認と削除メソッド
 
-	//消去
+	//消去するメソッド
 	public static void Delete(){
 
 		    File file = new File("c:\\test");
 
 		    if (file.exists()){
-		      if (file.delete()){
-		        System.out.println("ファイルを削除しました");
-		      }else{
-		        System.out.println("ファイルの削除に失敗しました");
-		      }
+
+		    	if (file.delete()){
+
+		    		System.out.println("ファイルを削除しました");
+
+		    	}else{
+
+		    		System.out.println("ファイルの削除に失敗しました");
+
+		    	}
+
 		    }else{
-		      System.out.println("ファイルが見つかりません");
+
+		    	System.out.println("ファイルが見つかりません");
+
 		    }
 		  }
 
@@ -754,32 +762,42 @@ public class KisoKadai3 {
 		    checkPermission(file);
 
 		    if (file.setReadOnly()){
-		      System.out.println("ファイルを読み取り専用にしました");
+
+		    	System.out.println("ファイルを読み取り専用にしました");
+
 		    }else{
-		      System.out.println("読み取り専用に変更が失敗しました");
+
+		    	System.out.println("読み取り専用に変更が失敗しました");
+
 		    }
 
 		    checkPermission(file);
-		  }
+
+	}
 
 	//専用設定の解除メソッド( 読み取り専用にするメソッドにひもづいてる )
 	//上を補助
 	private static void checkPermission(File file){
 
 		    if (file.canRead()){
-		      System.out.println("ファイルは読み込み可能です");
+
+		    	System.out.println("ファイルは読み込み可能です");
+
 		    }
 
 		    if (file.canWrite()){
-		      System.out.println("ファイルは書き込み可能です");
+
+		    	System.out.println("ファイルは書き込み可能です");
+
 		    }
 		  }
 
 
-
+	//キーボード入力するメソッド
 	private static String GetKey(){
 
 		String pass = "";
+
 		try{
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -787,9 +805,13 @@ public class KisoKadai3 {
 			pass = br.readLine();
 
 		}catch(IOException e){
+
 			System.out.println("Exception :" + e);
+
 		}
+
 		return pass;
+
 	}
 
 }

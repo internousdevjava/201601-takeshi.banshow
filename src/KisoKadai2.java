@@ -19,7 +19,6 @@ public class KisoKadai2 {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
-
 		Random rnd = new Random();
 
 		//自由に変える範囲
@@ -35,7 +34,6 @@ public class KisoKadai2 {
 
 			try{
 
-
 				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 				System.out.print("1～100の数字を半角で入力してください   ⇒  ");
@@ -43,7 +41,9 @@ public class KisoKadai2 {
 				str = br.readLine();
 
 			}catch(IOException e){
+
 				System.out.println("Exception :" + e);
+
 			}
 
 //			int kotae = 12;
@@ -54,9 +54,7 @@ public class KisoKadai2 {
 
 //				System.out.println( "答えは( " + kotae + " )だよ"  );
 
-
 				System.out.println( "入力したのは( " + answer + " )だね"  );
-
 				System.out.println( "うーん、値が大きすぎるよ" + "\n" );
 
 				int hinto;
@@ -69,7 +67,6 @@ public class KisoKadai2 {
 
 				int hanni = ( int ) Math.pow( 10, keta );
 
-
 				System.out.println( "--------------ヒント!--------------" );
 
 				System.out.println(  hanni +  "以内の数字を引くと答えだよ" );
@@ -77,14 +74,10 @@ public class KisoKadai2 {
 			//入力値より答えの値が高い分岐
 			}else if( kotae > answer ){
 
-
 //				System.out.println( "答えは( " + kotae + " )だよ"  );
 
-
 				System.out.println( "入力したのは( " + answer + " )だね"  );
-
 				System.out.println( "うーん、値が小さすぎるよ" + "\n" );
-
 
 				int hinto;
 
@@ -96,17 +89,13 @@ public class KisoKadai2 {
 
 				int hanni = ( int ) Math.pow( 10, keta );
 
-
 				System.out.println( "--------------ヒント!--------------" );
-
 				System.out.println(  hanni +  "以内の数字を足すと答えだよ" );
 
 			//正解の分岐
 			}else{
 
-
 				System.out.println( "入力したのは( " + answer + " )だね"  );
-
 				System.out.println( "おめでとう正解でーす♪" );
 				System.out.println("        _＿_  %");
 				System.out.println("   γ´      ｀ヽ");
