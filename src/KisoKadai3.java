@@ -53,7 +53,6 @@ public class KisoKadai3 {
 			}else if( str.equals( "2" ) ){
 
 				System.out.println("既にあるファイルを編集しようね♪");
-
 				String henshu = "";
 				System.out.println("テキスト内容を全て消して書き直すなら[ 1 ]\n");
 				System.out.println("テキスト内容に追記したかったら[ 2 ]とかの1以外を押してね♪");
@@ -71,6 +70,7 @@ public class KisoKadai3 {
 				if( henshu.equals( "1" ) ){
 
 					System.out.println("オッケー♪書き直しだね\n");
+
 					Uwagaki();
 
 				}else{
@@ -209,7 +209,7 @@ public class KisoKadai3 {
 							}else{
 								System.out.println( "ファイル名間違ってるかも" );
 								System.out.println( "もう一度入力してみて～(TAT)" );
-
+								break;
 							}
 
 
@@ -220,11 +220,13 @@ public class KisoKadai3 {
 					}
 
 
-					break;
+
 				}else{
 
 					for( int j = 0; j < 1; ){
+
 						try{
+
 							File file = new File( pass );
 
 							if (checkBeforeWritefile(file)){
@@ -248,30 +250,34 @@ public class KisoKadai3 {
 								String ShinnkiKakikomi = GetKey();
 
 								if( ShinnkiKakikomi.equals( "1" )){
+
 									System.out.println( "テキストの上書き完了！！" );
 									break;
 
 								}else{
+
 									System.out.println( "オッケー♪レッツもう一回！" );
 
 
 								}
 
 							}else{
+
 								System.out.println( "ファイル名間違ってるかも" );
 								System.out.println( "もう一度入力してみて～(TAT)" );
-
+								break;
 							}
 
 
 						}catch(IOException e){
+
 							System.out.println(e);
+
 						}
 
 					}
-					break;
-				}
 
+				}
 			}
 	  }
 	//上を全て書き込んだか判断するメソッド
@@ -288,122 +294,122 @@ public class KisoKadai3 {
 	//テキスト追加メソッド
 	public static void Tuika(){
 
-		System.out.println( "何処のテキストファイルを追記しよっか？" );
-		System.out.println( "↓例だよ\n" );
-		System.out.println( "C:\\Users\\internous\\Desktop\\banshow\\test\\test.txt" );
-		System.out.println( "注意！！必ず各フォルダー名の間に \\\\ をつけてね(＞A＜)！\n" );
-		System.out.println( "規定に入れた人は[ 何も入力せず ]にエンターキーを押してね♪" );
-		System.out.println( "↓入力" );
-
-		String pass = GetKey();
-
-		if( pass.equals( "" ) ){
-
-
-			System.out.println( "ファイルの名前を教えてね" );
-			System.out.println( "下が例だよ！test.txtってファイルに設定しようとしてるの♪[ ファイル名.txt ]\n " );
-			System.out.println( "test.txt\n" );
+		for( int i = 0; i < 1;){
+			System.out.println( "何処のテキストファイルを追記しよっか？" );
+			System.out.println( "↓例だよ\n" );
+			System.out.println( "C:\\Users\\internous\\Desktop\\banshow\\test\\test.txt" );
+			System.out.println( "注意！！必ず各フォルダー名の間に \\\\ をつけてね(＞A＜)！\n" );
+			System.out.println( "規定に入れた人は[ 何も入力せず ]にエンターキーを押してね♪" );
 			System.out.println( "↓入力" );
 
-			String filename = GetKey();
+			String pass = GetKey();
 
-			for( int j = 0; j < 1; ){
-				try{
-					File file = new File("C:\\Users\\internous\\Desktop\\banshow\\test\\" + filename );
+			if( pass.equals( "" ) ){
 
-					if (checkBeforeTuikaWritefile(file)){
-						FileWriter filewriter = new FileWriter(file, true);
 
-						System.out.println( "C:\\Users\\internous\\Desktop\\banshow\\test\\" + filename + "に書き込むね\n" );
-						System.out.println( "↓内容" );
+				System.out.println( "ファイルの名前を教えてね" );
+				System.out.println( "下が例だよ！test.txtってファイルに設定しようとしてるの♪[ ファイル名.txt ]\n " );
+				System.out.println( "test.txt\n" );
+				System.out.println( "↓入力" );
 
-						String  UserW = GetKey();
+				String filename = GetKey();
 
-						filewriter.write( UserW + "\n");
+				for( int j = 0; j < 1; ){
+					try{
+						File file = new File("C:\\Users\\internous\\Desktop\\banshow\\test\\" + filename );
 
-						filewriter.close();
+						if (checkBeforeTuikaWritefile(file)){
+							FileWriter filewriter = new FileWriter(file, true);
 
-						Yomikomi( "C:\\Users\\internous\\Desktop\\banshow\\test\\" + filename );
+							System.out.println( "C:\\Users\\internous\\Desktop\\banshow\\test\\" + filename + "に書き込むね\n" );
+							System.out.println( "↓内容" );
 
-						System.out.println( "上の内容で良ければ[ 1 ]" );
-						System.out.println( "上の内容を書き足したければ[ 1 ]以外を押してね♪" );
+							String  UserW = GetKey();
 
-						String TuikaKakikomi = GetKey();
+							filewriter.write( UserW + "\n");
 
-						if( TuikaKakikomi.equals( "1" )){
-							System.out.println( "テキストの追記完了！！" );
-							break;
+							filewriter.close();
+
+							Yomikomi( "C:\\Users\\internous\\Desktop\\banshow\\test\\" + filename );
+
+							System.out.println( "上の内容で良ければ[ 1 ]" );
+							System.out.println( "上の内容を書き足したければ[ 1 ]以外を押してね♪" );
+
+							String TuikaKakikomi = GetKey();
+
+							if( TuikaKakikomi.equals( "1" )){
+
+								System.out.println( "テキストの追記完了！！" );
+								break;
+
+							}else{
+
+								System.out.println( "オッケー♪レッツもう一行！" );
+
+
+							}
+
 
 						}else{
-							System.out.println( "オッケー♪レッツもう一行！" );
 
-
-						}
-
-
-					}else{
-						System.out.println( "ファイル名間違ってるかも" );
-						System.out.println( "もう一度入力してみて～(TAT)" );
-
-						Tuika();
-
-					}
-				}catch(IOException e){
-					System.out.println(e);
-
-				}
-			}
-		}else{
-
-			for( int j = 0; j < 1; ){
-				try{
-					File file = new File( pass );
-
-					if (checkBeforeTuikaWritefile(file)){
-						FileWriter filewriter = new FileWriter(file, true);
-
-						System.out.println( pass + "に書き込むね\n" );
-						System.out.println( "↓内容" );
-
-						String  UserW = GetKey();
-
-						filewriter.write( UserW + "\n");
-
-
-						filewriter.close();
-
-						Yomikomi( pass );
-
-						System.out.println( "上の内容で良ければ[ 1 ]" );
-						System.out.println( "上の内容を書き足したければ[ 1 ]以外を押してね♪" );
-
-						String ShinnkiKakikomi = GetKey();
-
-
-						if( ShinnkiKakikomi.equals( "1" )){
-							System.out.println( "テキストの追記完了！！" );
+							System.out.println( "ファイル名間違ってるかも" );
+							System.out.println( "もう一度入力してみて～(TAT)" );
 							break;
 
-						}else{
-							System.out.println( "オッケー♪レッツもう一行！" );
-
-
 						}
-
-
-					}else{
-						System.out.println( "ファイル名間違ってるかも" );
-						System.out.println( "もう一度入力してみて～(TAT)" );
-
-						Tuika();
+					}catch(IOException e){
+						System.out.println(e);
 
 					}
-				}catch(IOException e){
-					System.out.println(e);
+				}
+			}else{
 
+				for( int j = 0; j < 1; ){
+					try{
+						File file = new File( pass );
+
+						if (checkBeforeTuikaWritefile(file)){
+							FileWriter filewriter = new FileWriter(file, true);
+
+							System.out.println( pass + "に書き込むね\n" );
+							System.out.println( "↓内容" );
+
+							String  UserW = GetKey();
+
+							filewriter.write( UserW + "\n");
+
+
+							filewriter.close();
+
+							Yomikomi( pass );
+
+							System.out.println( "上の内容で良ければ[ 1 ]" );
+							System.out.println( "上の内容を書き足したければ[ 1 ]以外を押してね♪" );
+
+							String ShinnkiKakikomi = GetKey();
+
+
+							if( ShinnkiKakikomi.equals( "1" )){
+								System.out.println( "テキストの追記完了！！" );
+								break;
+
+							}else{
+								System.out.println( "オッケー♪レッツもう一行！" );
+
+							}
+
+						}else{
+							System.out.println( "ファイル名間違ってるかも" );
+							System.out.println( "もう一度入力してみて～(TAT)" );
+							break;
+
+						}
+					}catch(IOException e){
+						System.out.println(e);
+
+					}
 				}
 			}
-
 		}
 	}
 
